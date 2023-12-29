@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>ショッピングカート</h2>
+    </div>
+    <div class="col-5">
+      <%= link_to cart_items_destroy_all_path, method: :delete, data: { confirm: "Are you sure?"} do %>
+        <button type="button" class="btn btn-danger">カートを空にする</button>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      商品名
+    </div>
+    <div class="col">
+      単価(税込)
+    </div>
+    <div class="col">
+      数量
+    </div>
+    <div class="col">
+      小計
+    </div>
+    <div class="col">
+    </div>
+  </div>
+  <% @cart_items.each do |cart_item| %>
+    <div class="row p-3">
+      <div class="col">
+        <%= image_tag cart_item.item.get_item_image(50,50) %>
+        <%= cart_item.item.name %>
+      </div>
+      <div class="col">
+        <%= cart_item.item.tax_price %>
+      </div>
+      <div class="col">
+        <%= form_with model: cart_item, url: cart_item_path(cart_item), method: :patch do |f| %>
+          <%= f.select :amount, ['1','2','3','4','5','6','7','8','9','10'], value: cart_item.amount %>
+          <%= f.submit '変更', class: "btn btn-success" %>
+        <% end %>
+      </div>
+      <div class="col">
+        <%= cart_item.item.tax_price * cart_item.amount %> 円
+      </div>
+      <div class="col">
+        <%= link_to cart_item_path(cart_item), method: :delete do  %>
+          <button type="button" class="btn btn-danger">削除する</button>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col">
+      <%= link_to items_path do %>
+        <button type="button" class="btn btn-primary">買い物を続ける</button>
+      <% end %>
+    </div>
+    <div class="col-4">
+      <h4>合計金額 <%= @cart_items.inject(0){|sum, cart_item| sum + (cart_item.item.tax_price*cart_item.amount)} %> 円</h4>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col p-1">
+      <% if current_customer.cart_items.present? %>
+        <%= link_to new_order_path do %>
+          <button type="button" class="btn btn-success">情報入力に進む</button>
+        <% end %>
+      <% else %>
+        <%= link_to cart_items_path do %>
+          <button type="button" class="btn btn-success">情報入力に進む</button>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

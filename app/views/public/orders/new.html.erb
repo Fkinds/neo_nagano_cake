@@ -1,0 +1,56 @@
+<div class="container">
+  <%= form_with model: Order.new, url: orders_confirm_path do |f| %>
+  <div class="row">
+    <h3>注文情報入力</h3>
+  </div>
+  <div class="row">
+    <h4>支払方法</h4>
+  </div>
+  <div class="row offset-1">
+    <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+    <%= f.label Order.payment_methods_i18n[:credit_card] %>
+  </div>
+  <div class="row offset-1">
+    <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+    <%= f.label Order.payment_methods_i18n[:transfer] %>
+  </div>
+  <div class="row">
+    <h4>お届け先</h4>
+  </div>
+  <div class="row offset-1">
+    <%= f.radio_button :address_select, "0"%><br>
+    <%= f.label :address_select_0, "ご自身の住所"  %>
+  </div>
+  <div class="row offset-1">
+    <%= current_customer.address %>
+  </div>
+  <div class="row offset-1">
+    <%= f.radio_button :address_select, "1" %><br>
+    <%= f.label :address_select_1, "登録済住所から選択" %>
+  </div>
+  <div class="row offset-1">
+    <%= f.select :select_id, options_from_collection_for_select(Address.all, :id, :name )%>
+  </div>
+  <div class="row offset-1">
+    <%= f.radio_button :address_select, "2" %>
+    <%= f.label :address_select_2, "新しいお届け先" %>
+  </div>
+  <div class="row offset-1">
+    <div class="col-3"><%= f.label :zip_code, "郵便番号(ハイフンなし)" %></div>
+    <div class="col-3"><%= f.text_field :zip_code, :size=>"30" %></div>
+  </div>
+   <div class="row offset-1">
+    <div class="col-3"><%= f.label :address, "住所" %></div>
+    <div class="col-3"><%= f.text_field :address ,:size=>"50" %></div>
+  </div>
+  <div class="row offset-1">
+    <div class="col-3"><%= f.label :name, "宛名" %></div>
+    <div class="col-3"><%= f.text_field :name, :size=>"30" %></div>
+  </div>
+  <div class="row offset-1">
+    <div class="col justify-content-center d-flex">
+      <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
+    </div>
+  </div>
+  <% end %>
+</div>

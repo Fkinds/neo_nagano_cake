@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NaganoCake</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <script src="https://kit.fontawesome.com/7604ae39f4.js" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <% if request.path.match(/\/admin(\/)?/) %>
+      <%= render "admin/customers/header" %>
+    <% else %>
+      <%= render "public/customers/header" %>
+    <% end %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

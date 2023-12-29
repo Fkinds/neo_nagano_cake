@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-2 card text-center px-0" style="width: 5rem;">
+      <div class="card-header">
+        ジャンル検索
+      </div>
+      <% @genres.each do |genre| %>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item border-bottom">
+            <%= link_to items_path(genre_id: genre.id) do %>
+              <%= genre.name %>
+            <% end %>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+    <div class="col-10">
+      <div class="col">
+        <h2>商品一覧</h2>
+      </div>
+      <div class="row row-cols-4">
+        <% @items.each do |item| %>
+          <div class="col p-1">
+            <div class="card text-center" style="width: 14rem;">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <img class="card-image_tag">
+                    <%= link_to item_path(item) do %>
+                      <%= image_tag item.get_item_image(100,100), class: "card-img-top" %>
+                    <% end %>
+                  </img>
+                </li>
+                <li class="list-group-item">
+                  <h5 class="card-title">
+                    <%= link_to item_path(item) do %>
+                      <%= item.name %>
+                    <% end %>
+                  </h5>
+                </li>
+                <li class="list-group-item">
+                  <p class="card-text">
+                    <%= link_to item_path(item) do %>
+                      <%= item.tax_price %> 円
+                    <% end %>
+                  </p>
+                </li>
+              <ul>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

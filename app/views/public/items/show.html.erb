@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-2 card px-0 text-center" style="width: 10rem;">
+      <div class="card-header">
+        ジャンル検索
+      </div>
+      <% @genres.each do |genre| %>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <%= link_to items_path do %>
+              <%= genre.name %>
+            <% end %>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+    <div class="col-3 card justify-content-center px-10 offset-1">
+      <%= image_tag @item.get_item_image(250,250) %>
+    </div>
+    <div class="col-5 offset-1">
+      <div class="row py-1">
+        <h4><%= @item.name %></h4>
+      </div>
+      <div class="row py-1">
+        <%= @item.introduction %>
+      </div>
+      <div class="row py-1">
+        <%= "￥" + @item.tax_price.to_s + "(税込)" %>
+      </div>
+      <div class="row">
+        <%= form_with model: CartItem.new, url: cart_items_path  do |f| %>
+          <%= f.hidden_field :item_id, value: @item.id %>
+          <%= f.select :amount, ['1','2','3','4','5','6','7','8','9','10'], {include_blank: '個数選択'}, class: "form-select m-3 rounded" %>
+          <%= f.submit "カートに入れる", class: "btn btn-success rounded" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

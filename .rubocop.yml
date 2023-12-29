@@ -1,0 +1,35 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  SuggestExtensions: false
+  NewCops: enable
+  DisplayCopNames: true
+  Exclude:
+    - "Gemfile"
+    - "spec/*"
+    - "spec/factories/*"
+    - "bin/**/*"
+    - "config/environment/*"
+    - "config/initializers/*"
+    - "config/puma.rb"
+    - "db/schema.rb"
+    - "test/**/*"
+    - "app/helpers/**/*"
+    - "db/migrate/20231217053523_create_active_storage_tables.active_storage.rb"
+    - "config/environments/*"
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 26
+
+Metrics/AbcSize:
+  Max: 20
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - "app/controllers/**/*"

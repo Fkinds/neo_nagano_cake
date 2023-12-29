@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col offset-1">
+      <h4>注文履歴詳細</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2">購入者</div>
+    <div class="col-6"><%= @order.name %></div>
+    <div class="col-2">商品合計</div>
+    <div class="col-2"><%= @order.order_calculation(@order) %></div>
+  </div>
+  <div class="row">
+    <div class="col-2">注文日</div>
+    <div class="col-6"><%= @order.created_at.strftime('%Y/%m/%d %H:%M:%S') %></div>
+    <div class="col-2">送料</div>
+    <div class="col-2"><%= @order.delivery_fee %></div>
+  </div>
+  <div class="row">
+    <div class="col-2">配送先</div>
+    <div class="col-6"><%= "〒" + @order.zip_code + @order.address %></div>
+    <div class="col-2">請求金額合計</div>
+    <div class="col-2"><%= @order.order_calculation(@order) + @order.delivery_fee %></div>
+  </div>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-10"><%= @order.name %></div>
+  </div>
+  <div class="row">
+    <div class="col-2">支払方法</div>
+    <div class="col-10"><%= @order.payment_method_i18n %></div>
+  </div>
+  <div class="row">
+    <div class="col-2">注文ステータス</div>
+    <div class="col-10">
+      <%= form_with model: @order, url: admin_order_path(@order) do |f| %>
+        <%= f.select :status, ['入金待ち','入金確認','製作中','発送準備中','配送済み'] %>
+        <%= f.submit "更新" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2">商品名</div>
+    <div class="col-2">単価(税込)</div>
+    <div class="col-1">数量</div>
+    <div class="col-1">小計</div>
+    <div class="col-2">製作ステータス</div>
+  </div>
+  <% @order_details.each do |order_detail| %>
+    <div class="row">
+      <div class="col-2"><%= order_detail.item.name %></div>
+      <div class="col-2"><%= order_detail.item.tax_price %></div>
+      <div class="col-1"><%= order_detail.amount %></div>
+      <div class="col-1"><%= order_detail.payment %></div>
+      <div class="col-2">
+        <%= form_with model: order_detail, url: admin_order_detail_path(order_detail) do |f| %>
+          <%= f.select :making_status, ['着手不可','製作待ち','製作中','製作完了']%>
+          <%= f.submit "更新" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

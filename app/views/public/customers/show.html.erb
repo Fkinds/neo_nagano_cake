@@ -1,0 +1,53 @@
+ <div class="container">
+  <div class="row">
+    <h2>マイページ</h2>
+  </div>
+  <div class="row">
+    <div class="col-2"><h5>登録情報</h5></div>
+    <div class="col-4">
+      <%= link_to customers_information_edit_path do %>
+        <button type="button" class="btn btn-success m-1">編集する</button>
+      <% end %>
+    </div>
+  </div>
+  <ul class="list-group list-group-horizontal">
+    <li class="list-group-item col-2">氏名</li>
+    <li class="list-group-item col-6"><%= @customer.family_name + @customer.given_name %></li>
+  </ul>
+  <ul class="list-group list-group-horizontal">
+    <li class="list-group-item col-2">カナ</li>
+    <li class="list-group-item col-6"><%= @customer.family_name_kana + @customer.given_name_kana %></li>
+  </ul>
+  <ul class="list-group list-group-horizontal">
+    <li class="list-group-item col-2">郵便番号</li>
+    <li class="list-group-item col-6"><%= @customer.zip_code %></li>
+  </ul>
+  <ul class="list-group list-group-horizontal">
+    <li class="list-group-item col-2">住所</li>
+    <li class="list-group-item col-6"><%= @customer.address %></li>
+  </ul>
+  <ul class="list-group list-group-horizontal">
+    <li class="list-group-item col-2">電話番号</li>
+    <li class="list-group-item col-6"><%= @customer.phone_number %></li>
+  </ul>
+  <ul class="list-group list-group-horizontal">
+    <li class="list-group-item col-2">メールアドレス</li>
+    <li class="list-group-item col-6"><%= @customer.email %></li>
+  </ul>
+  <div class="row">
+    <div class="col-2"><h5>配送先</h5></div>
+    <div class="col-10">
+      <%= link_to addresses_path do %>
+        <button type="button" class="btn btn-primary m-1">配送先</button>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2"><h5>注文履歴</h5></div>
+    <div class="col-10">
+      <%= link_to orders_path do%>
+        <button type="button" class="btn btn-primary m-1">一覧を見る</button>
+      <% end %>
+    </div>
+  </div>
+</div>

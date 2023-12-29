@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col"><h4><%= @customer.family_name + @customer.given_name %></h4></div>
+  </div>
+  <div class="row">
+    <div class="col-2">会員ID</div>
+    <div class="col-3"><%= @customer.id %></div>
+  </div>
+  <%= form_with model: @customer, url: admin_customer_path(@customer), method: :patch do |f| %>
+    <div class="row">
+      <div class="col-2"><%= f.label :name, "氏名" %></div>
+      <div class="col-3"><%= f.text_field :family_name %></div>
+      <div class="col-3"><%= f.text_field :given_name %></div>
+    </div>
+    <div class="row">
+      <div class="col-2"><%= f.label :name, "フリガナ" %></div>
+      <div class="col-3"><%= f.text_field :family_name_kana %></div>
+      <div class="col-3"><%= f.text_field :given_name_kana %></div>
+    </div>
+    <div class="row">
+      <div class="col-2"><%= f.label :zip_code, "郵便番号" %></div>
+      <div class="col-3"><%= f.text_field :zip_code %></div>
+    </div>
+    <div class="row">
+      <div class="col-2"><%= f.label :address, "住所" %></div>
+      <div class="col-3"><%= f.text_field :address %></div>
+    </div>
+    <div class="row">
+      <div class="col-2"><%= f.label :phone_number, "電話番号" %></div>
+      <div class="col-3"><%= f.text_field :phone_number %></div>
+    </div>
+    <div class="row">
+      <div class="col-2"><%= f.label :email, "メールアドレス" %></div>
+      <div class="col-3"><%= f.text_field :email %></div>
+    </div>
+    <div class="row">
+      <div class="col-2"><%= f.label :is_deleted, "会員ステータス" %></div>
+      <div class="col-3">
+        <%= f.radio_button :is_deleted, false %>
+        <%= f.label :is_deleted, "有効" %>
+        <%= f.radio_button :is_deleted, true %>
+        <%= f.label :is_deleted, "退会" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-3 offset-1"><%= f.submit "変更を保存する", class: "btn btn-success" %></div>
+    </div>
+  <% end %>
+</div>

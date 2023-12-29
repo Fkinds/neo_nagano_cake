@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-2"><h4>商品新規登録</h4></div>
+    <div class="col-8"></div>
+    <div class="col-2"></div>
+  </div>
+  <%= form_with model: Item.new, url: admin_items_path do |f| %>
+    <div class="row">
+      <div class="col-2 offset-1"><%= f.label :image, "商品画像" %></div>
+      <div class="col rounded"><%= f.file_field :filename %></div>
+    </div>
+    <div class="row">
+      <div class="col-2 offset-1"><%= f.label :name, "商品名" %></div>
+      <div class="col"><%= f.text_field :name, :size=>"50" %></div>
+    </div>
+    <div class="row">
+      <div class="col-2 offset-1"><%= f.label :introduction, "商品説明" %></div>
+      <div class="col"><%= f.text_area :introduction, :size=>"55×30" %></div>
+    </div>
+    <div class="row">
+      <div class="col-2 offset-1"><%= f.label :genre_id, "ジャンル" %></div>
+      <div class="col"><%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name) %></div>
+    </div>
+    <div class="row">
+      <div class="col-2 offset-1"><%= f.label :price, "税抜価格" %></div>
+      <div class="col"><%= f.text_field :price, :size=>"50" %>円</div>
+    </div>
+    <div class="row">
+      <div class="col-2 offset-1"><%= f.label :is_sold, "販売ステータス" %></div>
+      <div class="col">
+        <%= f.radio_button :is_sold, false %>
+        <%= f.label :is_sold, "販売中" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2 offset-1"></div>
+      <div class="col">
+        <%= f.radio_button :is_sold, true %>
+        <%= f.label :is_sold, "販売停止中" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2 offset-1"></div>
+      <div class="col offset-1"><%= f.submit "新規登録", class: "btn btn-success" %></div>
+    </div>
+  <% end %>
+</div>

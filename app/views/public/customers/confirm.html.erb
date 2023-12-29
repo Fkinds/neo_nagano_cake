@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-3">
+      <h4>本当に退会しますか？</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-3">
+      <%= link_to "退会しない", my_page_path %>
+    </div>
+    <div class="col-3">
+      <%= link_to "退会する", customers_withraw_path, method: :post, date: {confirm: "Are you sure?"} %>
+    </div>
+  </div>
+</div>
