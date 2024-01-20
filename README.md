@@ -4,20 +4,20 @@
 1. ```git clone git@github.com:Fkinds/neo_nagano_cake.git```
 2. ```docker compose build --no-cache```
 3. ```docker compose up```
-4. 以下のどちらかにアクセスする
-    http://localhost:3000/
-    http://127.0.0.1:3000/
+4. 以下のどちらかにアクセスする  
+    http://localhost:3000/  
+    http://127.0.0.1:3000/  
 
 ## タイトルと概要、URL
 neo-nagano-cake
 
 ケーキ屋さんのECサイトです。
 
-アピールポイント
-Rubocoopを用いてコードの保守性を改善しました。
-正規表現を用いてadminとcustomerのヘッターの表示するコード量を削減した。
-退会機能は、deiveseの機能をオーバーライドすることでコード量を削減した。
-製作ステータスのステータス処理をメソッドを持ちてコード量を削減した。
+- アピールポイント
+Rubocoopを用いてコードの保守性を改善しました。  
+正規表現を用いてadminとcustomerのヘッターの表示するコード量を削減した。  
+退会機能は、deiveseの機能をオーバーライドすることでコード量を削減した。  
+製作ステータスのステータス処理をメソッドを持ちてコード量を削減した。  
 
 ## 使用技術
 - Ruby 3.1.2
