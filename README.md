@@ -30,7 +30,7 @@ Rubocoopを用いてコードの保守性を意識しました。
 - アプリケーション詳細設計
  - https://docs.google.com/spreadsheets/d/1oSr2806jZ4PShUS6n6gdd8BH0K6PohKHjfz1WkSJDFA/edit#gid=755621295
 
-##　機能一覧
+## 機能一覧
 - 認証機能(deivse)
 - ログインユーザのアカウント管理機能
 - 商品登録機能
