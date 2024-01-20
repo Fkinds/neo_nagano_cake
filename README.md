@@ -25,14 +25,14 @@ Rubocoopを用いてコードの保守性を改善しました。
 - docker/docker-compose
 
 ## ER図とテーブル定義書とアプリケーション詳細設計
-- ER図
- - https://app.diagrams.net/#G1s6yQVijwNchukTMIqWTfu6oIj0kgIMhN
+- ER図  
+https://app.diagrams.net/#G1s6yQVijwNchukTMIqWTfu6oIj0kgIMhN
 
-- テーブル定義書
- - https://docs.google.com/spreadsheets/d/16FWndn2HlmJ6UH6jUrJyhyGsZO87V5SD/edit#gid=136342688
+- テーブル定義書  
+https://docs.google.com/spreadsheets/d/16FWndn2HlmJ6UH6jUrJyhyGsZO87V5SD/edit#gid=136342688
 
-- アプリケーション詳細設計
- - https://docs.google.com/spreadsheets/d/1oSr2806jZ4PShUS6n6gdd8BH0K6PohKHjfz1WkSJDFA/edit#gid=755621295
+- アプリケーション詳細設計  
+https://docs.google.com/spreadsheets/d/1oSr2806jZ4PShUS6n6gdd8BH0K6PohKHjfz1WkSJDFA/edit#gid=755621295
 
 ## 機能一覧
 - 認証機能(deivse)
