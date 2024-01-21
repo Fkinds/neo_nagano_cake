@@ -36,7 +36,7 @@ https://docs.google.com/spreadsheets/d/1oSr2806jZ4PShUS6n6gdd8BH0K6PohKHjfz1WkSJ
 メールアドレス、パスワードでログインできる。  
 ログイン時のみ利用できる機能が利用できるようになる。  
 ![Alt text](./pic/customer_login.png)  
-![Alt text](./top.png)  
+![Alt text](./pic/top.png)  
 
 - ログアウト機能   
 ログインしている状態からログアウト状態にする。  
