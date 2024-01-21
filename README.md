@@ -22,7 +22,7 @@ UI/UX設計がお客様に対してとても親切な設計になっていると
 
 ## ER図とテーブル定義書とアプリケーション詳細設計
 - ER図  
-https://app.diagrams.net/#G1s6yQVijwNchukTMIqWTfu6oIj0kgIMhN
+https://drive.google.com/file/d/1hCt25UBemdSDUC-xFfWmzfBpXiDXQ9f3/view
 
 - テーブル定義書  
 https://docs.google.com/spreadsheets/d/16FWndn2HlmJ6UH6jUrJyhyGsZO87V5SD/edit#gid=136342688
